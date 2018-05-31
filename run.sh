@@ -39,7 +39,9 @@ http {
                 video/mp2ts ts;
             }
             root /tmp;
-            add_header  Cache-Control no-cache;
+            add_header 'Access-Control-Allow-Origin' '*';
+            add_header 'Access-Control-Allow-Credentials' 'true';
+            add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
         }
 
         location /on_publish {
