@@ -34,22 +34,14 @@ http {
         server_name     localhost;
 
         location /hls {
-            # Disable cache
-            add_header Cache-Control no-cache;
-
-            # CORS setup
-            add_header 'Access-Control-Allow-Origin' '*' always;
-            add_header 'Access-Control-Expose-Headers' 'Content-Length';
-            add_header 'Access-Control-Allow-Origin' '*';
-            add_header 'Access-Control-Max-Age' 1728000;
-            add_header 'Content-Type' 'text/plain charset=UTF-8';
-            add_header 'Content-Length' 0;
-            
+            # Serve HLS fragments
             types {
                 application/vnd.apple.mpegurl m3u8;
-                video/mp2ts ts;
+                video/mp2t ts;
             }
             root /tmp;
+            add_header Cache-Control no-cache;
+            add_header 'Access-Control-Allow-Origin' '*';
         }
 
         location /on_publish {
