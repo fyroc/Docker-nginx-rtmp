@@ -34,7 +34,6 @@ http {
         server_name     localhost;
 
         location /hls {
-            # Serve HLS fragments
             types {
                 application/vnd.apple.mpegurl m3u8;
                 video/mp2t ts;
